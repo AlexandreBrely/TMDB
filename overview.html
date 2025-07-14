@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview TMDB</title>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+
+        <div class="row">
+
+            <!-- Left -->
+
+            <div class="col-md-6 col-10">
+
+                <img id="poster" class="img-fluid rounded shadow" alt="Movie Poster">
+            </div>
+
+            <!-- Right-->
+
+            <div class="col-md-6 col-10 d-flex flex-column justify-content-center">
+
+                <h1 id="title"></h1>
+
+                <p><strong>PG Rating:</strong> <span id="pgRating"></span></p>
+
+                <p><strong>Release Date:</strong> <span id="releaseDate"></span></p>
+
+                <p><strong>Rating:</strong>  <span id="voteAverage"></span></p>
+        
+                <p id="overview"></p>
+            </div>
+
+        </div>
+
+        <!-- Cast section -->
+        <div class="row mt-5">
+            <h2>Cast</h2>
+            <div id="cast" class="d-flex flex-wrap gap-4"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="assets/JS/scriptoverview.js"></script>
+</body>
