@@ -23,7 +23,9 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options)
         document.getElementById("voteAverage").innerText = data.vote_average;
         document.getElementById("overview").innerText = data.overview;
         document.getElementById("poster").src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
-        document.getElementById("pgRating").innerText = data.adult ? "18+" : "PG";
+        
+        document.getElementById("banner").style.backgroundImage = `url('https://image.tmdb.org/t/p/w1280${data.backdrop_path}')`;
+
 
     })
     .catch(err => console.error(err));
@@ -42,3 +44,37 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`, op
       `;
         });
     });
+
+    //trailer fetch
+    fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, options)
+  .then(res => res.json())
+  .then(data => {
+    const trailer = data.results.find(video =>
+      video.type === "Trailer" && video.site === "YouTube"
+    );
+
+    if (trailer) {
+      const trailerKey = trailer.key;
+      const trailerUrl = `https://www.youtube.com/embed/${trailerKey}`;
+
+      document.getElementById("trailer").innerHTML = `
+        <div class="ratio ratio-16x9">
+          <iframe src="${trailerUrl}" title="Movie Trailer" allowfullscreen></iframe>
+        </div>
+      `;
+    } else {
+      document.getElementById("trailer").innerHTML = `<p>No trailer available.</p>`;
+    }
+  })
+  .catch(err => console.error(err));
+
+  //fetch for pg rating
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}/release_dates`, options)
+  .then(res => res.json())
+  .then(data => {
+    const usRelease = data.results.find(r => r.iso_3166_1 === "US");
+    const rating = usRelease?.release_dates[0]?.certification;
+
+    document.getElementById("pgRating").innerText = rating || "Not Rated";
+  })
+  .catch(err => console.error("Failed to load US rating:", err));

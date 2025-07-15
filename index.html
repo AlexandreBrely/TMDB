@@ -9,18 +9,40 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link href=" https://cdn.jsdelivr.net/npm/open-weather-icons@0.0/dist/css/open-weather-icons.min.css "
-        rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
 
     <link rel="stylesheet" href="assets/css/stylesheet.css">
 </head>
 
-<body>
-    <header>
-        <h1>The Movie Data Base</h1>
+<body class="bg-dark">
+
+    <header class="bg-dark text-white py-3 mb-4 border border-primary-subtle">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+            <!-- Site title with icon -->
+            <a href="index.html" class="text-decoration-none text-white fs-3 fw-bold">
+                <i class="bi bi-film me-2"></i>Dark Room & Popcorn
+            </a>
+
+            <!-- Search form with icon button -->
+            <form id="searchForm" class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search movies..." id="searchInput">
+                <button class="btn btn-outline-light" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+
+            <!-- Return button on overview page
+    <a href="index.html" class="btn btn-outline-light d-none" id="returnBtn">
+      <i class="bi bi-arrow-left-circle me-1"></i>Return
+    </a> -->
+
+        </div>
     </header>
+
+
 
     <div id="banner" class="banner mx-auto mb-5">
     </div>
@@ -44,18 +66,20 @@
 
     </div>
 
+    <footer class="bg-dark text-white mt-5 py-4 border border-primary-subtle">
+        <div class="container text-center">
+            <p class="mb-1 fw-bold">🎬 Dark Room & Popcorn</p>
+            <p class="mb-2">Project for class: DWWM 2025</p>
+           
+        </div>
+    </footer>
 
 
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
 
-        <div class="mt-auto"></div>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-            crossorigin="anonymous"></script>
-
-        <script src="assets/JS/script.js"></script>
+    <script src="assets/JS/script.js"></script>
 </body>
 
 </html>
